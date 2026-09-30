@@ -1,0 +1,1 @@
+// Arduino CLI sketch entrypoint; setup() and loop() are implemented in the .cpp file.
