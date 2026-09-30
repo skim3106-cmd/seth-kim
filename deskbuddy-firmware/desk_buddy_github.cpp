@@ -11,6 +11,8 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 #include <WiFiClientSecure.h>
+#include "User_Setup.h"
+#define USER_SETUP_LOADED
 #include <TFT_eSPI.h>
 #include <time.h>
 #include <ArduinoJson.h>

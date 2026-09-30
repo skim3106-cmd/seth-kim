@@ -347,6 +347,211 @@ main {
   max-width: 560px;
 }
 
+.projects-flasher {
+  width: min(100% - 64px, 1120px);
+  margin-inline: auto;
+  padding-block: 70px 88px;
+  animation: rise-in 650ms ease-out both;
+}
+
+.flash-intro h1 {
+  margin: 23px 0 16px;
+  font-size: 72px;
+  line-height: 1.04;
+  font-weight: 600;
+}
+
+.flash-intro h1 span {
+  color: #54852c;
+}
+
+.flash-warning {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 42px;
+  padding: 17px 20px;
+  border-left: 3px solid #54852c;
+  background: #edf1e7;
+}
+
+.flash-warning p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.flash-warning .flash-kicker {
+  color: var(--ink);
+}
+
+.flash-kicker,
+.firmware-index {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.firmware-list {
+  margin-top: 42px;
+  border-top: 1px solid var(--line);
+}
+
+.firmware-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  gap: 40px;
+  align-items: center;
+  padding: 27px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.firmware-index {
+  margin-bottom: 9px;
+  color: var(--muted);
+}
+
+.firmware-info h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+}
+
+.firmware-info > p:not(.firmware-index) {
+  max-width: 540px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.firmware-source,
+.firmware-download {
+  display: inline-block;
+  margin-top: 9px;
+  color: var(--muted);
+  font-size: 11px;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.firmware-source:hover,
+.firmware-download:hover {
+  color: var(--ink);
+}
+
+.firmware-action {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+}
+
+.firmware-action esp-web-install-button {
+  display: block;
+}
+
+.flash-button {
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid #315b20;
+  border-radius: 3px;
+  background: #54852c;
+  color: #fff;
+  font: 700 13px var(--sans);
+  cursor: pointer;
+}
+
+.flash-button:hover {
+  background: #426d23;
+}
+
+.flash-button:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.flash-button span {
+  margin-right: 7px;
+  font-size: 17px;
+}
+
+.flash-unsupported {
+  max-width: 250px;
+  color: #9b382f;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.ota-guide {
+  margin-top: 68px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.ota-guide h2 {
+  margin: 10px 0 24px;
+  font-size: 26px;
+}
+
+.ota-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+}
+
+.ota-columns h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+
+.ota-columns p,
+.ota-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.ota-columns code {
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.ota-note {
+  max-width: 760px;
+  margin-top: 22px;
+}
+
+@media (max-width: 680px) {
+  .projects-flasher {
+    width: min(100% - 40px, 1120px);
+    padding-block: 52px 64px;
+  }
+
+  .flash-intro h1 {
+    font-size: 54px;
+  }
+
+  .flash-warning {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .firmware-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .ota-columns {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
 .site-embed {
   margin-top: 76px;
 }
@@ -601,6 +806,16 @@ main {
 
   .site-embed {
     margin-top: 58px;
+  }
+
+  .recaptcha-wrap {
+    min-height: 76px;
+    overflow: hidden;
+  }
+
+  .recaptcha-wrap .g-recaptcha {
+    transform: scale(0.9);
+    transform-origin: left top;
   }
 
   .catalog-embed iframe {

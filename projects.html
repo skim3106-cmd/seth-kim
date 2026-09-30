@@ -6,6 +6,7 @@
   <meta name="description" content="Projects by Seth Kim.">
   <title>Projects | Seth Kim</title>
   <link rel="stylesheet" href="site.css">
+  <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
   <script src="offline.js" defer></script>
 </head>
 <body>
@@ -25,11 +26,71 @@
     </nav>
   </header>
 
-  <main class="subpage">
-    <p class="eyebrow">SELECTED WORK</p>
-    <h1>Things in<br><span>progress.</span></h1>
-    <p class="subpage-copy">Add your websites, experiments, and other work here. Each project can link to its own HTML page or an external site.</p>
-    <a class="text-link" href="index.html">Back to home <span aria-hidden="true">↗</span></a>
+  <main class="projects-flasher">
+    <header class="flash-intro">
+      <p class="eyebrow">ESP32 FIRMWARE</p>
+      <h1>Flash your<br><span>board.</span></h1>
+      <p class="subpage-copy">Choose a firmware build, connect your ESP32 CYD over USB, and install it from this browser.</p>
+    </header>
+
+    <aside class="flash-warning" aria-label="Flashing requirements">
+      <p class="flash-kicker">BEFORE YOU FLASH</p>
+      <p>Use desktop Chrome or Edge on this HTTPS site and a USB data cable. Installing erases the board's current firmware and saved settings. Keep the board connected until the installer finishes.</p>
+    </aside>
+
+    <section class="firmware-list" aria-label="Available firmware">
+      <article class="firmware-row">
+        <div class="firmware-info">
+          <p class="firmware-index">01 / ESP32</p>
+          <h2>Deskbuddy</h2>
+          <p>Touchscreen desk companion. Includes its Wi-Fi setup portal and Arduino OTA updates.</p>
+          <a class="firmware-source" href="deskbuddy-firmware/desk_buddy_github.cpp">View source</a>
+        </div>
+        <div class="firmware-action">
+          <p class="flash-kicker">USB INSTALLER</p>
+          <esp-web-install-button manifest="firmware/deskbuddy/manifest.json">
+            <button class="flash-button" type="button" slot="activate"><span aria-hidden="true">&#8595;</span> Flash Deskbuddy</button>
+            <span class="flash-unsupported" slot="unsupported">Web Serial is unavailable in this browser.</span>
+          </esp-web-install-button>
+          <a class="firmware-download" href="firmware/deskbuddy/firmware.bin" download>Download 4 MB image</a>
+        </div>
+      </article>
+
+      <article class="firmware-row">
+        <div class="firmware-info">
+          <p class="firmware-index">02 / ESP32 CYD 2.8</p>
+          <h2>TamaPets-CYD</h2>
+          <p>Pixel cat pet with touch care, sleep, sitter, mini-game, Bluetooth setup, and Wi-Fi OTA.</p>
+          <a class="firmware-source" href="TamaPets-CYD/TamaPets-CYD.ino">View source</a>
+        </div>
+        <div class="firmware-action">
+          <p class="flash-kicker">USB INSTALLER</p>
+          <esp-web-install-button manifest="firmware/tamapets-cyd/manifest.json">
+            <button class="flash-button" type="button" slot="activate"><span aria-hidden="true">&#8595;</span> Flash TamaPets</button>
+            <span class="flash-unsupported" slot="unsupported">Web Serial is unavailable in this browser.</span>
+          </esp-web-install-button>
+          <a class="firmware-download" href="firmware/tamapets-cyd/firmware.bin" download>Download 4 MB image</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="ota-guide" aria-labelledby="ota-heading">
+      <p class="eyebrow">AFTER THE FIRST USB FLASH</p>
+      <h2 id="ota-heading">How OTA works</h2>
+      <div class="ota-columns">
+        <div>
+          <h3>Deskbuddy</h3>
+          <p>Connect Deskbuddy and your computer to the same Wi-Fi network. Arduino IDE discovers its network port; choose that port and upload as usual. The OTA password is managed in Deskbuddy settings (default: <code>deskbuddy123</code>).</p>
+        </div>
+        <div>
+          <h3>TamaPets-CYD</h3>
+          <p>Pair with <strong>TamaPets-CYD</strong> in a Bluetooth serial app. Send <code>WIFI_SSID=...</code>, <code>WIFI_PASS=...</code>, <code>OTA_PASS=your-password</code> (8+ characters), then <code>WIFI_CONNECT</code>. On the same Wi-Fi network, choose the TamaPets network port in Arduino IDE to upload. Use <code>OTA_STATUS</code> to see its IP.</p>
+        </div>
+      </div>
+      <p class="ota-note">OTA sends only a firmware update over your local network; the USB installer is for first install or recovery. Both devices must use the partition layout included in their USB image for OTA updates to fit.</p>
+    </section>
+
+    <a class="text-link" href="index.html">Back to home <span aria-hidden="true">&#8599;</span></a>
   </main>
 
   <footer class="site-footer">

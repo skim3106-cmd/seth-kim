@@ -8,7 +8,8 @@ Use either the Arduino IDE or Arduino CLI to compile and flash the firmware:
 ```bash
 arduino-cli core update-index
 arduino-cli core install esp32:esp32
-arduino-cli compile --fqbn esp32:esp32:esp32 ./desk_buddy_github.cpp
+arduino-cli lib install TFT_eSPI ArduinoJson XPT2046_Touchscreen
+arduino-cli compile --fqbn esp32:esp32:esp32 ./deskbuddy-firmware
 ```
 
-The device also supports mDNS, so after Wi‑Fi setup it can usually be reached at `http://deskbuddy.local` or whatever hostname you set in the AP setup page.
+The project folder includes its Arduino sketch entrypoint and display configuration. After Wi-Fi setup, the device supports mDNS and Arduino OTA: select its network port in Arduino IDE while your computer is on the same network. Change the OTA password in the Deskbuddy settings page; the default is `deskbuddy123`.

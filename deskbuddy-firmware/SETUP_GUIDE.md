@@ -33,12 +33,13 @@ curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.
 export PATH="$HOME/.arduino15/packages/arduino/tools/arduino-cli/"$PATH
 arduino-cli core update-index
 arduino-cli core install esp32:esp32
+arduino-cli lib install TFT_eSPI ArduinoJson XPT2046_Touchscreen
 ```
 
 Then compile with a board target such as:
 
 ```bash
-arduino-cli compile --fqbn esp32:esp32:esp32 ./desk_buddy_github.cpp
+arduino-cli compile --fqbn esp32:esp32:esp32 ./deskbuddy-firmware
 ```
 
 ## 2. Install ESP32 Board Support
@@ -81,7 +82,7 @@ The following are normally included automatically with the ESP32 board package:
 
 This is the most important step for getting the display to work correctly.
 
-Deskbuddy uses the **TFT_eSPI** library, and you will most likely need to replace or edit the `User_Setup` file inside the TFT_eSPI library folder so it matches your display.
+Deskbuddy uses the **TFT_eSPI** library. Its project-local `User_Setup.h` is selected by the firmware, so do not overwrite the library's global setup file.
 
 If the TFT_eSPI setup is wrong, you may see problems like:
 
@@ -93,16 +94,7 @@ If the TFT_eSPI setup is wrong, you may see problems like:
 
 ### What to do
 
-Find the TFT_eSPI library folder on your computer and locate:
-
-`User_Setup.h`
-
-Then either:
-
-- Replace it with a working setup for your display
-- Or edit the driver and pin settings manually
-
-If you are using a specific ESP32 touchscreen board variant, it is a good idea to keep a backup of your working `User_Setup.h`.
+If the display remains blank, confirm that you are using the display and ESP32 board revision this project targets before changing the project-local `User_Setup.h`.
 
 ## 4. Open the Deskbuddy Code
 
@@ -184,6 +176,10 @@ From the browser interface, you can adjust things like:
 - Alert behavior
 
 This makes it easy to personalize the device without editing the code every time.
+
+## OTA Updates
+
+After Wi-Fi setup, keep the computer and Deskbuddy on the same local network. In Arduino IDE, select the discovered Deskbuddy network port and upload normally. Arduino OTA is already enabled in the firmware; change its password from the Deskbuddy settings page before relying on network updates. The initial USB flash must use the standard dual-slot OTA partition scheme.
 
 ## 10. Troubleshooting
 

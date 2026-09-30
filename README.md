@@ -2,6 +2,10 @@
 
 This repository contains a static website for GitHub Pages. The home page links to `about.html` and `projects.html`; all pages share `site.css`.
 
+## reCAPTCHA demo
+
+`contact.html` displays a standalone reCAPTCHA checkbox. It is not connected to a form or server-side verification, so it does not protect submissions.
+
 ## Push changes
 
 After making changes, commit and push them with:

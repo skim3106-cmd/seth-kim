@@ -1,4 +1,4 @@
-const CACHE_NAME = "seth-kim-site-v1";
+const CACHE_NAME = "seth-kim-site-v2";
 const APP_FILES = [
   "./",
   "./index.html",
