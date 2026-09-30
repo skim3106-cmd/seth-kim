@@ -6,9 +6,12 @@ const APP_FILES = [
   "./projects.html",
   "./games.html",
   "./pizza-games.html",
+  "./pizza-play.html",
   "./offline.html",
   "./site.css",
   "./offline.js",
+  "./pizza-games.js",
+  "./pizza-play.js",
   "./pizza-games.json"
 ];
 const NETWORK_TIMEOUT_MS = 3000;

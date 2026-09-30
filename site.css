@@ -355,6 +355,119 @@ main {
   padding-bottom: 70px;
 }
 
+.pizza-directory {
+  padding-top: clamp(90px, 14vh, 140px);
+  padding-bottom: 70px;
+}
+
+.pizza-directory-tools {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 8px 20px;
+  max-width: 640px;
+  margin-block: 42px 24px;
+}
+
+.pizza-directory-tools label {
+  grid-column: 1 / -1;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.pizza-directory-tools input {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+}
+
+.pizza-directory-tools input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.game-count {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.pizza-game-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.pizza-game-list li {
+  min-width: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.pizza-game-list a {
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px 10px 0;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.pizza-game-list a:hover,
+.pizza-game-list a:focus-visible {
+  color: var(--accent);
+}
+
+.pizza-game-list a span:first-child {
+  overflow-wrap: anywhere;
+}
+
+.pizza-game-list a span:last-child {
+  flex: 0 0 auto;
+  font-family: var(--mono);
+}
+
+.game-empty {
+  padding-block: 24px;
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  .pizza-game-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .pizza-directory-tools {
+    grid-template-columns: 1fr;
+  }
+
+  .pizza-directory-tools label {
+    grid-column: auto;
+  }
+
+  .game-count {
+    margin-top: 2px;
+  }
+
+  .pizza-game-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 .catalog-embed {
   margin-top: 48px;
 }

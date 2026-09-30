@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Play a game from Pizza Edition.">
+  <title>Pizza Edition Game | Seth Kim</title>
+  <link rel="stylesheet" href="site.css">
+  <script src="offline.js" defer></script>
+  <script src="pizza-play.js" defer></script>
+</head>
+<body class="pizza-page">
+  <header class="pizza-game-bar">
+    <a href="pizza-games.html">← All games</a>
+    <span id="game-title">Pizza Edition</span>
+    <a id="open-game" href="https://pizzaedition.com/g" target="_blank" rel="noopener noreferrer">Open separately ↗</a>
+  </header>
+  <main class="pizza-game-main">
+    <iframe
+      id="game-frame"
+      title="Pizza Edition game"
+      allow="fullscreen; autoplay; gamepad"
+      allowfullscreen>
+    </iframe>
+    <p id="game-error" class="pizza-play-error" hidden>This game could not be found. <a href="pizza-games.html">Return to the game list.</a></p>
+  </main>
+</body>
+</html>

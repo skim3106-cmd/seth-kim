@@ -2,6 +2,16 @@
 
 This repository contains a static website for GitHub Pages. The home page links to `about.html` and `projects.html`; all pages share `site.css`.
 
+## Push changes
+
+After making changes, commit and push them with:
+
+```bash
+git add .
+git commit -m "Update website"
+git push origin main
+```
+
 ## Publish with GitHub Pages
 
 1. Push this repository to GitHub.
