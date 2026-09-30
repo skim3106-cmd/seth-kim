@@ -30,6 +30,23 @@ a {
   color: inherit;
 }
 
+.offline-notice {
+  position: fixed;
+  z-index: 20;
+  right: 16px;
+  bottom: 16px;
+  max-width: calc(100vw - 32px);
+  padding: 12px 16px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.offline-notice[hidden] {
+  display: none;
+}
+
 .site-header,
 .site-footer {
   width: min(100% - 64px, 1120px);
@@ -347,6 +364,18 @@ main {
   min-height: 640px;
 }
 
+.pizza-catalog .embed-frame {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+}
+
+.pizza-catalog .embed-frame iframe {
+  height: min(92vh, 1100px);
+  min-height: 760px;
+}
+
 .game-entry {
   margin-top: 64px;
   padding-top: 26px;
@@ -464,6 +493,11 @@ main {
   .catalog-embed iframe {
     height: 72vh;
     min-height: 520px;
+  }
+
+  .pizza-catalog .embed-frame iframe {
+    height: 88vh;
+    min-height: 620px;
   }
 
   .embed-heading {
