@@ -1,4 +1,4 @@
-const CACHE_NAME = "seth-kim-site-v2";
+const CACHE_NAME = "seth-kim-site-v3";
 const APP_FILES = [
   "./",
   "./index.html",
@@ -8,6 +8,7 @@ const APP_FILES = [
   "./pizza-games.html",
   "./pizza-play.html",
   "./offline.html",
+  "./site-gate.js",
   "./site.css",
   "./offline.js",
   "./pizza-games.js",
