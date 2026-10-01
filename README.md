@@ -9,6 +9,15 @@ continues to the requested page and remembers access for the current browser
 tab. This is a client-side gate only; it does not provide server-side
 verification or protect private content.
 
+## Offline mode
+
+The service worker caches the site's pages, styles, scripts, and Pizza Edition
+game list after the site is first opened online. Offline support requires a
+browser with service worker support and an HTTPS connection (GitHub Pages
+provides HTTPS). If the connection is lost, cached pages remain available and
+the checkbox gate is skipped. Embedded games and other third-party content
+still require internet access.
+
 ## Push changes
 
 After making changes, commit and push them with:

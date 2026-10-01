@@ -1,6 +1,10 @@
 (() => {
   const accessKey = 'sethKimCaptchaAccess';
 
+  if (!navigator.onLine) {
+    return;
+  }
+
   try {
     if (sessionStorage.getItem(accessKey) === 'granted') {
       return;
@@ -71,20 +75,30 @@
     gate.remove();
   };
 
+  const offerOfflineAccess = () => {
+    status.textContent = 'Verification is unavailable. You can continue to cached pages.';
+    if (content.querySelector('.captcha-offline-continue')) return;
+
+    const continueButton = document.createElement('button');
+    continueButton.className = 'captcha-offline-continue';
+    continueButton.type = 'button';
+    continueButton.textContent = 'Continue to saved pages';
+    continueButton.addEventListener('click', continueToSite, { once: true });
+    status.after(continueButton);
+  };
+
   const renderCheckbox = () => {
     try {
       window.grecaptcha.render(widget, {
         sitekey: '6LeUdNgtAAAAAJLlaMrFpZNwgFMGO7ydiCZ3BvV6',
         callback: continueToSite,
-        'error-callback': () => {
-          status.textContent = 'The checkbox could not load. Check your connection and try again.';
-        },
+        'error-callback': offerOfflineAccess,
         'expired-callback': () => {
           status.textContent = 'The check expired. Please complete it again.';
         },
       });
     } catch {
-      status.textContent = 'The checkbox could not load. Check the site key and allowed domain.';
+      offerOfflineAccess();
     }
   };
 
@@ -93,8 +107,6 @@
   recaptchaScript.src = 'https://www.google.com/recaptcha/api.js?onload=siteGateRecaptchaLoaded&render=explicit';
   recaptchaScript.async = true;
   recaptchaScript.defer = true;
-  recaptchaScript.onerror = () => {
-    status.textContent = 'The checkbox could not load. Check your connection and refresh.';
-  };
+  recaptchaScript.onerror = offerOfflineAccess;
   document.head.append(recaptchaScript);
 })();
