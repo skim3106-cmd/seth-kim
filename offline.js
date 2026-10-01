@@ -6,7 +6,7 @@ const updateOfflineNotice = () => {
     notice.className = "offline-notice";
     notice.setAttribute("role", "status");
     notice.setAttribute("aria-live", "polite");
-    notice.textContent = "Offline: cached pages are available; external games need internet.";
+    notice.textContent = "Offline: bundled games are available; external games need internet.";
     document.body.append(notice);
   }
 

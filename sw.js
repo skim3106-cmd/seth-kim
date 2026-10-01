@@ -1,4 +1,4 @@
-const CACHE_NAME = "seth-kim-site-v3";
+const CACHE_NAME = "seth-kim-site-v4";
 const APP_FILES = [
   "./",
   "./index.html",
@@ -7,12 +7,14 @@ const APP_FILES = [
   "./games.html",
   "./pizza-games.html",
   "./pizza-play.html",
+  "./offline-games.html",
   "./offline.html",
   "./site-gate.js",
   "./site.css",
   "./offline.js",
   "./pizza-games.js",
   "./pizza-play.js",
+  "./offline-games.js",
   "./pizza-games.json"
 ];
 const NETWORK_TIMEOUT_MS = 3000;

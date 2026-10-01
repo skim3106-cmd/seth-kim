@@ -5,6 +5,12 @@ const emptyMessage = document.querySelector("#game-empty");
 
 let games = [];
 
+const offlineGames = [
+  { name: "2048 (Offline)", id: "2048", offline: true },
+  { name: "Snake (Offline)", id: "snake", offline: true },
+  { name: "Tic-Tac-Toe (Offline)", id: "tic-tac-toe", offline: true }
+];
+
 const renderGames = () => {
   const query = searchInput.value.trim().toLocaleLowerCase();
   const filteredGames = games.filter((game) => game.name.toLocaleLowerCase().includes(query));
@@ -16,7 +22,9 @@ const renderGames = () => {
     const name = document.createElement("span");
     const arrow = document.createElement("span");
 
-    link.href = `pizza-play.html?game=${encodeURIComponent(game.url)}`;
+    link.href = game.offline
+      ? `offline-games.html?game=${encodeURIComponent(game.id)}`
+      : `pizza-play.html?game=${encodeURIComponent(game.url)}`;
     name.textContent = game.name;
     arrow.textContent = "→";
     arrow.setAttribute("aria-hidden", "true");
@@ -31,6 +39,8 @@ const renderGames = () => {
 };
 
 searchInput.addEventListener("input", renderGames);
+games = offlineGames;
+renderGames();
 
 fetch("pizza-games.json")
   .then((response) => {
@@ -38,11 +48,10 @@ fetch("pizza-games.json")
     return response.json();
   })
   .then((catalog) => {
-    games = catalog.slice().sort((first, second) => first.name.localeCompare(second.name));
+    games = [...offlineGames, ...catalog]
+      .sort((first, second) => first.name.localeCompare(second.name));
     renderGames();
   })
   .catch(() => {
-    gameCount.textContent = "Game list unavailable";
-    emptyMessage.hidden = false;
-    emptyMessage.textContent = "The game list could not be loaded. Try refreshing the page.";
+    gameCount.textContent = "Showing offline games; the online catalog is unavailable.";
   });

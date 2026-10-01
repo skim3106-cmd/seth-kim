@@ -11,12 +11,13 @@ verification or protect private content.
 
 ## Offline mode
 
-The service worker caches the site's pages, styles, scripts, and Pizza Edition
-game list after the site is first opened online. Offline support requires a
-browser with service worker support and an HTTPS connection (GitHub Pages
-provides HTTPS). If the connection is lost, cached pages remain available and
-the checkbox gate is skipped. Embedded games and other third-party content
-still require internet access.
+The service worker caches the site's pages, styles, scripts, Pizza Edition
+game list, and locally bundled 2048, Snake, and Tic-Tac-Toe games after the
+site is first opened online. Offline support requires a browser with service
+worker support and an HTTPS connection (GitHub Pages provides HTTPS). If the
+connection is lost, cached pages and bundled games remain available and the
+checkbox gate is skipped. Games hosted by Pizza Edition and other third-party
+content still require internet access.
 
 ## Push changes
 

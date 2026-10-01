@@ -717,6 +717,171 @@ main {
   color: var(--muted);
 }
 
+.offline-game-page {
+  min-height: 100vh;
+  background-color: var(--paper);
+}
+
+.offline-game-main {
+  width: min(100% - 40px, 720px);
+  margin: 48px auto 80px;
+}
+
+.offline-game-back {
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.offline-game-back:hover {
+  color: var(--accent);
+}
+
+.offline-game-title {
+  margin: 28px 0 4px;
+  font-size: 56px;
+}
+
+.offline-game-description,
+.offline-game-status {
+  color: var(--muted);
+}
+
+.local-game {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.offline-game-scores {
+  width: min(100%, 440px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+.offline-game-button,
+.direction-button {
+  min-height: 42px;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  padding: 8px 14px;
+  background: var(--ink);
+  color: var(--paper);
+  font: inherit;
+  cursor: pointer;
+}
+
+.offline-game-button:hover,
+.direction-button:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.tile-board {
+  width: min(100%, 440px);
+  aspect-ratio: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 8px;
+  background: #aaa397;
+}
+
+.tile-cell {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  background: #d9d2c6;
+  color: #27251f;
+  font-family: var(--mono);
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.tile-2 { background: #f4f0e7; }
+.tile-4 { background: #e8d8b7; }
+.tile-8 { background: #e7a35c; color: #fff; }
+.tile-16 { background: #df754a; color: #fff; }
+.tile-32 { background: #d4513c; color: #fff; }
+.tile-64 { background: #b52f32; color: #fff; }
+.tile-128, .tile-256, .tile-512, .tile-1024, .tile-2048 { background: #287c65; color: #fff; }
+
+.game-direction-controls {
+  display: grid;
+  grid-template-columns: repeat(3, 48px);
+  grid-template-rows: repeat(2, 44px);
+  gap: 4px;
+}
+
+.game-direction-controls .direction-button:nth-child(1) { grid-column: 2; grid-row: 1; }
+.game-direction-controls .direction-button:nth-child(2) { grid-column: 1; grid-row: 2; }
+.game-direction-controls .direction-button:nth-child(3) { grid-column: 2; grid-row: 2; }
+.game-direction-controls .direction-button:nth-child(4) { grid-column: 3; grid-row: 2; }
+
+.direction-button {
+  min-height: 44px;
+  padding: 4px;
+  font-size: 20px;
+}
+
+.snake-board {
+  width: min(92vw, 440px);
+  height: auto;
+  aspect-ratio: 1;
+  border: 1px solid var(--line);
+  touch-action: none;
+}
+
+.tic-tac-toe-board {
+  width: min(84vw, 360px);
+  aspect-ratio: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.tic-tac-toe-cell {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  aspect-ratio: 1;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: #e9e4da;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 72px;
+  cursor: pointer;
+}
+
+.tic-tac-toe-cell:not(:disabled):hover {
+  background: #d5e5db;
+}
+
+.tic-tac-toe-cell:disabled {
+  cursor: default;
+}
+
+@media (max-width: 480px) {
+  .offline-game-title {
+    font-size: 40px;
+  }
+
+  .tile-cell {
+    font-size: 22px;
+  }
+
+  .tic-tac-toe-cell {
+    font-size: 52px;
+  }
+}
+
 @media (max-width: 480px) {
   .pizza-directory-tools {
     grid-template-columns: 1fr;
