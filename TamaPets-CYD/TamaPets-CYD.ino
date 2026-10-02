@@ -22,7 +22,7 @@ static constexpr uint32_t NEED_TICK_MS = 60000;
 static constexpr uint32_t EGG_HATCH_SECONDS = 600;
 
 TFT_eSPI tft;
-SPIClass touchSpi(VSPI);
+SPIClass touchSpi(HSPI);
 XPT2046_Touchscreen touch(TOUCH_CS, TOUCH_IRQ);
 BluetoothSerial bluetooth;
 Preferences preferences;
@@ -685,11 +685,19 @@ void setup() {
 
   pinMode(TFT_BL, OUTPUT);
   digitalWrite(TFT_BL, TFT_BACKLIGHT_ON);
+
+  SPI.begin(TFT_SCLK, TFT_MISO, TFT_MOSI, TFT_CS);
   tft.init();
   tft.setRotation(SCREEN_ROTATION);
   tft.invertDisplay(false);
 
-  touchSpi.begin(TOUCH_SCK, TOUCH_MISO, TOUCH_MOSI);
+  tft.fillScreen(TFT_RED);
+  delay(150);
+  tft.fillScreen(TFT_GREEN);
+  delay(150);
+  tft.fillScreen(TFT_BLACK);
+
+  touchSpi.begin(TOUCH_SCK, TOUCH_MISO, TOUCH_MOSI, TOUCH_CS);
   touch.begin(touchSpi);
   touch.setRotation(SCREEN_ROTATION);
 

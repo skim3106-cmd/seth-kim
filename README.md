@@ -2,13 +2,6 @@
 
 This repository contains a static website for GitHub Pages. The home page links to `about.html` and `projects.html`; all pages share `site.css`.
 
-## Site entry checkbox
-
-The Google reCAPTCHA checkbox appears before regular site pages. Completing it
-continues to the requested page and remembers access for the current browser
-tab. This is a client-side gate only; it does not provide server-side
-verification or protect private content.
-
 ## Offline mode
 
 The service worker caches the site's pages, styles, scripts, Pizza Edition
