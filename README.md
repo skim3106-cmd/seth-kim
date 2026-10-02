@@ -19,6 +19,13 @@ connection is lost, cached pages and bundled games remain available and the
 checkbox gate is skipped. Games hosted by Pizza Edition and other third-party
 content still require internet access.
 
+## MongoDB connection
+
+`mongodb.mjs` exports a reusable MongoDB client connection for server-side
+Node.js code. Set `MONGODB_URI` in the backend environment; do not put Atlas
+credentials in browser code or commit them to this repository. GitHub Pages
+cannot run this module because it only hosts static files.
+
 ## Push changes
 
 After making changes, commit and push them with:
